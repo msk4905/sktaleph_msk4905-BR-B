@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.vercel/
+qa/
+*backup*.json
+*assessment*.json
