@@ -8,7 +8,7 @@ test(get('#onboarding').open===true,'first visit opens onboarding');
 run('onboardStep=0;onboardAnswer=true;drawOnboarding()');
 test(get('#onboard-content').innerHTML.includes('두 문장을 요청했는데 세 문장'),'practice feedback');
 run('onboardStep=2;drawOnboarding()');
-test(get('#onboard-content').innerHTML.includes('예시·틀'),'aggregate guidance');
+test(get('#onboard-content').innerHTML.includes('방법 선택'),'aggregate guidance');
 run('closeOnboarding()');test(run('saved.onboardingVersion')===3,'dismissal remembered');
 test(get('#onboarding').open===false,'dialog closes');
 run('openOnboarding()');test(run('onboardStep')===0,'replay resets guide');

@@ -69,3 +69,5 @@ run("saved={cases:{}};learningState();go('about');beginExam('pre')");ok(run("lea
 run("go('lab')");ok(run("contamination('pre').includes('평가 시작 후 학습 자료 열람')"),'opening reference during exam is recorded');
 const result={passed:checks,scope:'state transitions, correction history, independent assessment, rubric, import/export, storage failure',humanParticipants:0,learningEffect:'not established',newModelCalls:0};fs.writeFileSync('verification-learning.json',JSON.stringify(result,null,2));console.log(result);
 
+
+run("saved.learningV3.version='precision-1';const oldLearning=saved.learningV3;learningState()");ok(run("saved.learningArchives.at(-1)===oldLearning"),"previous course archived");ok(run("Object.keys(saved.learningV3.lessons).length===0"),"new course starts separately");
