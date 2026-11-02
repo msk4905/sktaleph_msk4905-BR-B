@@ -8,6 +8,37 @@ assert.equal(run('inspectExperimentText("모임을 엽니다. 오늘 만납니�
 assert.equal(run('experimentPrompts(experiments.draft).example.startsWith(experimentPrompts(experiments.draft).plain)'),true);
 run("experiments.runs=[{version:'x',condition:'plain',status:'error'},{version:'x',condition:'plain',status:'completed',flags:[{pass:true},{pass:false},{pass:true},{pass:true}]}]");
 assert.equal(run("expSummary({id:'x'})[0].mean"),.75);assert.equal(run("expSummary({id:'x'})[0].attempts"),2);
+// Regression: validation and re-rendering must preserve the unsaved response.
+let stored=null,mainWrites=0;
+const elements={};
+ctx.$=id=>elements[id]||(elements[id]={value:'',tagName:id.includes('condition')?'SELECT':'INPUT'});
+Object.defineProperty(ctx.$('#main'),'innerHTML',{set(){mainWrites++;for(const key of Object.keys(elements))if(key!=='#main')delete elements[key];}});
+ctx.document={querySelectorAll:()=>[]};ctx.esc=String;ctx.notify=()=>{};
+ctx.localStorage.setItem=(key,value)=>{stored=value;};
+run('renderExperiment()');
+ctx.$('#exp-manual').value='사라지면 안 되는 응답이에요.';ctx.$('#exp-manual').oninput();
+ctx.$('#exp-manual-model').value='test-model';ctx.$('#exp-manual-model').oninput();
+ctx.$('#exp-manual-condition').value='example';ctx.$('#exp-manual-condition').onchange();
+const before=mainWrites;ctx.$('#exp-inspect').onclick();
+assert.equal(mainWrites,before);assert.equal(ctx.$('#exp-manual').value,'사라지면 안 되는 응답이에요.');
+run('renderExperiment()');
+assert.equal(ctx.$('#exp-manual').value,'사라지면 안 되는 응답이에요.');
+assert.equal(ctx.$('#exp-manual-model').value,'test-model');
+assert.equal(ctx.$('#exp-manual-condition').value,'example');
+assert.equal(JSON.parse(stored).manualDraft.text,'사라지면 안 되는 응답이에요.');
+const reload={localStorage:{getItem:()=>stored},console};vm.createContext(reload);vm.runInContext(fs.readFileSync('dist/experiment.js','utf8'),reload);
+assert.equal(vm.runInContext('experiments.manualDraft.text',reload),'사라지면 안 되는 응답이에요.');
+console.log('Draft regression checks passed: validation, re-render, model/condition preservation, storage and reload.');
+const fixture=run('JSON.stringify({schema:EXP_KEY,draft:experiments.draft,versions:[],runs:[]})');
+ctx.backup=JSON.parse(fixture);assert.equal(run('validateExperimentBackup(backup).runs.length'),0);
+ctx.backup.schema='wrong';assert.throws(()=>run('validateExperimentBackup(backup)'));
+ctx.backup=JSON.parse(fixture);ctx.backup.runs=[{id:'orphan',version:'missing'}];assert.throws(()=>run('validateExperimentBackup(backup)'));
+ctx.backup=JSON.parse(fixture);ctx.backup.draft.total='4';assert.throws(()=>run('validateExperimentBackup(backup)'));
+run("experiments.runs=[{id:'r',version:'g',model:'model-A',source:'api',batch:'batch-1',condition:'plain',status:'completed',flags:Array.from({length:4},()=>({label:'rule',pass:true}))}]");
+assert(run("experimentGroups({id:'g'})").includes('100.0%'));
+assert(run("manualReviewUI(experiments.runs[0])").includes('판단 근거'));
+assert.equal(run('experiments.runs[0].flags.every(f=>f.pass)'),true);
+console.log('Enhancement checks passed: backup validation, orphan rejection, grouping and separate review UI.');
 const handler=require('./api/experiment.js');
 let calls=0;global.fetch=async(url,opts)=>{calls++;assert.equal(url,'https://api.openai.com/v1/responses');const b=JSON.parse(opts.body);assert.equal(b.store,false);assert.equal(b.max_output_tokens,1200);return {ok:true,json:async()=>({id:'mock',status:'completed',model:'test-model',output:[{type:'message',content:[{type:'output_text',text:'테스트 응답이에요.'}]}],usage:{total_tokens:20}})};};
 async function request(method,body,token='secret'){let status=200,payload;await handler({method,body,headers:{authorization:'Bearer '+token,origin:'https://test.example'}},{setHeader(){},status(n){status=n;return this},json(v){payload=v;return this}});return {status,payload};}

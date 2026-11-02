@@ -13,7 +13,7 @@ ok(run('PRACTICE.flat().every(q=>q.feedback.length===3&&q.feedback.every(x=>x.le
 // Assessments: omissions must not become correct by default; final submission immutable.
 run("beginExam('delayed')");ok(run('examView')===null,'delayed exam requires post submission');
 run("beginExam('pre')");ok(run("examSubmissionError(learningState().assessments.pre)").includes('여섯'),'blank exam blocked');
-ok(!get('#main').innerHTML.includes('타당한 답:'),'exam does not leak answer key');
+ok(!get('#main').innerHTML.includes('정답:'),'exam does not leak answer key');
 run("const baseline=learningState().assessments.pre;EXAMS[baseline.form].forEach(q=>baseline.answers[q.id]=q.key);baseline.artifact='구조를 정의하고 비교 계획을 작성한 테스트 답안';baseline.help='no'");
 ok(run("submitExam('pre')"),'valid first baseline submitted');
 ok(run('examScore(baseline)')===6,'score includes six actual choices');
@@ -25,7 +25,7 @@ for(let i=0;i<8;i++){
  run(`launchLesson(${i})`);ok(run('lessonStep')===0,'start at diagnosis');
  run("document.querySelector('#lesson-next').onclick()");ok(run('lessonStep')===0,'blank diagnostic blocks progression');
  run(`lessonRecord().answers[PRACTICE[${i}][0].id].selected=(PRACTICE[${i}][0].key+1)%3;document.querySelector('#submit-choice').onclick()`);
- ok(get('#learning-body').innerHTML.includes('이 부분을 다시 살펴보세요.'),'wrong answer gets corrective feedback');
+ ok(get('#learning-body').innerHTML.includes('해설을 읽고 다시 풀어 보세요.'),'wrong answer gets corrective feedback');
  run(`lessonRecord().answers[PRACTICE[${i}][0].id].selected=PRACTICE[${i}][0].key;document.querySelector('#submit-choice').onclick()`);
  ok(run(`firstCorrect(lessonRecord().answers[PRACTICE[${i}][0].id],PRACTICE[${i}][0])`)===false,'retry never overwrites first attempt');
  run("document.querySelector('#lesson-next').onclick();document.querySelector('#lesson-next').onclick()");ok(run('lessonStep')===2,'concept then practice');

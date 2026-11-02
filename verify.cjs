@@ -33,7 +33,7 @@ run("go('editor')");test(get('#main').innerHTML.includes('생성 결과 아님')
 get('#task').value='연습 과제';get('#template').value='▶ 제목\n[문장]. [문장].';get('#strategy').value='example';get('#example').value='모임을 엽니다.';get('#reason').value='문체를 확인';
 run("document.querySelector('#compose').onclick()");test(get('#draftfeedback').innerHTML.includes('충돌'),'style conflict feedback');
 run("go('records')");test(get('#main').innerHTML.includes('아직 저장한 기록'),'empty records');
-run("go('about')");test(get('#main').innerHTML.includes('입증하지 않았습니다'),'limitations');
+run("go('about')");test(get('#main').innerHTML.includes('앱으로 실력이 늘거나 작업 시간이 줄어드는지는 아직 확인하지 않았습니다'),'limitations');
 
 test(run('COURSE.length')===8,'eight curriculum sessions');
 run("courseIndex=-1;go('course')");test(get('#main').innerHTML.includes('여러 날'),'course is default long-form learning');

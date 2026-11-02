@@ -2,7 +2,7 @@
 // Curriculum activities are instructional extensions, not new research results.
 const COURSE=[
   {
-    "title": "지시 준수와 글의 품질 구분하기",
+    "title": "조건을 지킨 글과 좋은 글 구분하기",
     "phase": "기초 · 연구 질문",
     "question": "무엇을 지켰는지 어떻게 판단할까요?",
     "caseIndex": 0,
@@ -16,14 +16,14 @@ const COURSE=[
       "고친 두 문장과, 수정 후 확인할 기준을 작성하세요."
     ],
     "checks": [
-      "두 문장·소제목 없음은 이미 충족함을 구분한다",
+      "이미 두 문장이며 소제목이 없다는 점을 확인한다",
       "합니다체와 느낌표 위반을 모두 수정한다",
-      "확인한 것은 형식 조건이며 글의 모든 품질은 아님을 구분한다"
+      "형식을 지켰다고 내용까지 정확한 것은 아님을 설명한다"
     ],
     "example": "“토요일에 모임을 열어요. 책을 가져오세요.”처럼 고칠 수 있습니다. 문장 수와 소제목 조건은 바꿀 필요가 없습니다. 원정보와 일치하는지 등은 이 형식 검사만으로 알 수 없습니다.",
     "extra": "같은 내용에 “세 문장·합니다체”를 요구하면 검사 기준은 어떻게 달라질까요? 기존 8개 조건을 그대로 가져오지 말고 생각해 보세요.",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "예시에서 내용은 빼고 형식만 남기기",
@@ -34,20 +34,20 @@ const COURSE=[
       "완성된 예시는 내용과 말투, 문장 배치를 함께 보여 줍니다. 내용을 비우고 형식만 남긴 틀을 이 과정에서는 ‘골격’이라고 부릅니다. 논문에서는 이런 골격을 넣었을 때도 AI가 조건을 더 잘 지키는 결과가 나왔습니다.",
       "따라서 완성된 글 대신 필요한 형식만 보여 주는 방법도 생각해 볼 수 있습니다. 다만 골격이 완성 예시와 항상 같은 효과를 내거나, 모든 작업에서 더 좋다는 뜻은 아닙니다."
     ],
-    "task": "요구: 두 문단, 문단당 두 문장, 해요체. 예시: “독서 모임을 열어요. 토요일에 만나요.\n\n책 한 권을 가져오세요. 댓글로 신청해 주세요.” 내용을 비우되 구조를 보존하는 틀을 만드세요.",
+    "task": "요구: 두 문단, 문단당 두 문장, 해요체. 예시: “독서 모임을 열어요. 토요일에 만나요.\n\n책 한 권을 가져오세요. 댓글로 신청해 주세요.” 내용을 빼고 문단과 문장 수만 남긴 틀을 만드세요.",
     "prompts": [
       "새 과제에서 바꿀 내용과 유지할 구조를 각각 적으세요.",
       "빈 틀과, 틀만으로 드러나지 않아 별도로 적어야 할 지시를 작성하세요."
     ],
     "checks": [
-      "독서 모임·토요일·책 등의 내용을 자리표시자로 바꾼다",
+      "독서 모임·토요일·책 등의 내용을 빈칸 표시로 바꾼다",
       "두 문단·각 두 문장을 유지한다",
       "해요체 지시를 별도로 전달한다"
     ],
-    "example": "“[행사 소개]. [일시 안내].\n\n[준비물 안내]. [신청 안내].”처럼 두 문단의 슬롯을 두고 해요체로 채우라고 지시할 수 있습니다. 틀을 만들었다고 실제 응답이 이를 지켰다고 볼 수는 없습니다.",
-    "extra": "골격의 자리표시자를 모두 “[내용]”으로 바꾸면 전달되는 정보가 어떻게 달라질까요?",
+    "example": "“[행사 소개]. [일시 안내].\n\n[준비물 안내]. [신청 안내].”처럼 두 문단의 빈칸을 만들고 해요체로 채우라고 지시할 수 있습니다. 틀을 만들었다고 실제 응답이 이를 지켰다고 볼 수는 없습니다.",
+    "extra": "골격의 빈칸 표시를 모두 “[내용]”으로 바꾸면 전달되는 정보가 어떻게 달라질까요?",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "지시와 예시의 충돌 수정하기",
@@ -66,12 +66,12 @@ const COURSE=[
     "checks": [
       "첫 문단의 문체 충돌을 찾는다",
       "둘째 문단과 두 문단·각 두 문장 구조를 보존한다",
-      "실제 효과는 수정 전후 응답을 비교해야 함을 구분한다"
+      "수정 전후의 응답을 받아 봐야 효과를 알 수 있음을 설명한다"
     ],
     "example": "첫 문단을 “행사를 안내해요. 오늘 신청을 받아요.”로 바꾸고 둘째 문단은 유지할 수 있습니다. 이렇게 하면 지시와 예시의 말투는 맞출 수 있습니다. AI가 실제로 지시를 더 잘 따르는지는 응답을 받아 봐야 알 수 있습니다.",
     "extra": "“두 문단·각 두 문장·전체 다섯 문장”은 동시에 가능할까요? 예시 충돌과 요구 자체의 모순을 구분해 보세요.",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "같은 기준으로 응답 비교하기",
@@ -95,7 +95,7 @@ const COURSE=[
     "example": "Q.·A.를 역할 표지로 보면 A/B 모두 두 문장으로 해석할 수 있습니다. 원검사 B=4문장과 보완 판정 B=2문장을 구분해 남깁니다. 이 사례는 설명용이며 모든 문장 판별 문제를 해결하지는 않습니다.",
     "extra": "인용문이나 소수점이 포함되면 어떤 판정 차이가 생길 수 있을까요? 새 기준을 정할 때 전체 응답에 똑같이 적용해야 하는 이유를 설명해 보세요.",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "하나만 바꾸는 비교 설계하기",
@@ -119,7 +119,7 @@ const COURSE=[
     "example": "같은 과제·요구·모델·설정에서 골격만 추가한 조건을 만듭니다. 조건별로 반복하고 순서를 섞어 기록합니다. 검사 기준은 실행 전에 정하며 실패·누락을 임의로 제외하지 않습니다. 적절한 반복 횟수는 목표와 변동성에 따라 정해야 합니다.",
     "extra": "두 과제로 확장하면 과제별 결과와 전체 결과를 어떻게 나누어 보고할까요? 이 앱은 새 API를 호출하지 않습니다.",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "평균과 한 번의 성공 구분하기",
@@ -143,7 +143,7 @@ const COURSE=[
     "example": "두 조건 모두 16개 규칙 중 12개 준수로 75%입니다. 모든 조건을 지킨 응답은 A 0/4, B 2/4입니다. 이 자료에서 그 차이를 관찰했다고 말할 수 있지만 다른 실행·과제·모델에서도 같다고 단정할 수 없습니다.",
     "extra": "완전한 형식 준수가 중요한 상황이라면 어떤 지표를 먼저 볼까요? 반대로 일부 위반의 비용이 다르면 어떤 추가 정보가 필요할까요?",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "다른 출력 구조에 적용하기",
@@ -164,10 +164,10 @@ const COURSE=[
       "머리글과 데이터 행을 구분하고 표 밖 설명 금지를 전달한다",
       "이 구조에서의 효과는 아직 확인하지 않았음을 구분한다"
     ],
-    "example": "머리글 “품목/수량” 아래에 [품목1]/[수량1]부터 세 데이터 행을 둡니다. 자리표시자를 입력으로 채우고 표 밖 문장을 쓰지 말라고 지시할 수 있습니다. 표의 준수 개선 여부는 같은 과제로 골격 유무를 비교해야 확인됩니다.",
+    "example": "머리글 “품목/수량” 아래에 [품목1]/[수량1]부터 세 데이터 행을 둡니다. 빈칸 표시를 입력으로 채우고 표 밖 문장을 쓰지 말라고 지시할 수 있습니다. 표의 준수 개선 여부는 같은 과제로 골격 유무를 비교해야 확인됩니다.",
     "extra": "다음에는 같은 정보를 목록으로 출력하도록 바꾸어 보세요. 표 골격을 그대로 붙이면 어떤 충돌이 생길까요?",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   },
   {
     "title": "며칠 뒤 새 요구로 다시 설계하기",
@@ -188,10 +188,10 @@ const COURSE=[
       "합니다체 요구와 해요체 예시의 충돌을 처리한다",
       "실제 응답을 실행하지 않았다면 효과 미확인으로 남긴다"
     ],
-    "example": "1. [첫 안내 문장]부터 세 슬롯을 만들고 각 문장을 합니다체로 채우도록 지시합니다. 해요체 예시는 말투를 수정하거나 필요한 구조만 추출할 수 있습니다. 번호 개수·항목별 문장 수·문체를 대조합니다. 스스로 검토를 마쳤더라도 다른 요청에서도 같은 방법을 쓸 수 있는지 더 연습해 보세요.",
+    "example": "1. [첫 안내 문장]부터 세 빈칸을 만들고 각 문장을 합니다체로 채우도록 지시합니다. 해요체 예시는 말투를 수정하거나 필요한 구조만 추출할 수 있습니다. 번호 개수·항목별 문장 수·문체를 대조합니다. 스스로 검토를 마쳤더라도 다른 요청에서도 같은 방법을 쓸 수 있는지 더 연습해 보세요.",
     "extra": "자신의 실제 글쓰기 과제에 옮겨 보세요. 실제 실행을 했다면 지시 준수 결과를 남기고, 하지 않았다면 미실행이라고 기록하세요.",
     "minutes": "약 20분",
-    "transfer": "오늘은 짧은 수정본과 이유를 남기면 충분합니다. 선택 탐구는 다른 날 이어가도 됩니다."
+    "transfer": "고친 답안과 이유를 저장하세요. 추가 문제는 나중에 풀어도 됩니다."
   }
 ];
 let courseIndex=-1;
@@ -207,7 +207,7 @@ function renderCourse(){const all=courseState();
  $('#course-export').onclick=()=>download('prompt-lab-course.json',JSON.stringify({format:'prompt-lab-course',version:2,course:all},null,2),'application/json');
  $('#course-import').onchange=async e=>{const file=e.target.files[0];if(!file)return;if(file.size>1500000){notify('백업은 1.5MB 이하 파일만 읽습니다.');return;}try{const data=JSON.parse(await file.text());const clean=validateCourseBackup(data);if(!confirm('현재 단계별 학습 기록을 이 백업으로 바꿀까요? 필요하면 먼저 백업하세요.'))return;saved.course20=clean;persist();renderCourse();notify('백업을 불러왔습니다.');}catch(err){notify('읽을 수 없는 백업입니다. 프롬프트 실험실 학습 과정 JSON을 선택하세요.');}};return;}
  const u=COURSE[courseIndex],v=courseEntry(),f=v.fields;
- $('#main').innerHTML=`<div class="section-title"><button id="course-home">← 전체 과정</button><span class="tag">${courseIndex+1} / 8 · ${esc(u.phase)}</span></div><h1>${esc(u.title)}</h1><p class="muted">${esc(u.question)} · 예상 ${esc(u.minutes)}</p><div class="course-work"><section><div class="card"><h2>1. 설명 읽기</h2>${u.lesson.map(p=>`<p>${esc(p)}</p>`).join('')}<p class="note">핵심 원리는 논문에 근거합니다. 아래 새 과제는 교육용으로 구성했으며, 다른 형식에서의 효과는 별도로 확인해야 합니다.</p>${u.caseIndex!==null?`<div class="result"><strong>연구에서 확인한 자료</strong><p>${esc(DATA.cases[u.caseIndex].lesson)}</p><p class="note">${DATA.cases[u.caseIndex].aggregate.map(a=>esc(a["조건명"])+": "+esc(a["준수율(%)"])+"% ("+esc(a["짝 수"])+"쌍)").join(" · ")}<br>평균 규칙 준수율이며 글 전체 성공률은 아닙니다.</p></div><details><summary>선택 · 원자료 전체 읽기 · 사례 ${u.caseIndex+1}</summary>${courseEvidence(u.caseIndex)}</details>`:''}</div><div class="card"><h2>2. 직접 설계하기</h2><div class="task-brief">${esc(u.task).replace(/\n/g,'<br>')}</div>${u.prompts.map((p,i)=>courseField('answer'+i,p,f['answer'+i])).join('')}<div class="actions"><button class="primary" id="course-draft">${v.initial?'검토 단계 다시 열기':'초안 보존하고 검토 기준 열기'}</button><button id="course-save">지금 저장</button></div><p id="course-save-status" role="status" class="note">${v.updated?'마지막 저장: '+esc(new Date(v.updated).toLocaleString('ko-KR')):'입력하면 자동 저장됩니다.'}</p></div><div id="course-review"></div></section><aside><div class="card course-sticky"><h3>이번 차시의 산출물</h3><p>짧은 초안 하나 + 수정본 + 수정 이유 한두 줄</p><p class="note">형식적으로 글을 채웠는지는 확인할 수 있어도, 자유 서술의 타당성을 자동 채점하지는 않습니다.</p><h3>확인할 기준</h3><ul>${u.checks.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h3>다음 시간까지</h3><p>${esc(u.transfer)}</p>${v.initial?`<details><summary>보존된 첫 초안</summary><div class="response">${esc(v.initial)}</div></details>`:''}${v.history.length?`<details><summary>검토 기록 ${v.history.length}개</summary>${v.history.map(h=>`<p><small>${esc(new Date(h.date).toLocaleString('ko-KR'))}</small></p><div class="response">${esc(h.revision)}</div><p>${esc(h.reason)}</p>`).join('')}</details>`:''}</div></aside></div>`;
+ $('#main').innerHTML=`<div class="section-title"><button id="course-home">← 전체 과정</button><span class="tag">${courseIndex+1} / 8 · ${esc(u.phase)}</span></div><h1>${esc(u.title)}</h1><p class="muted">${esc(u.question)} · 예상 ${esc(u.minutes)}</p><div class="course-work"><section><div class="card"><h2>1. 설명 읽기</h2>${u.lesson.map(p=>`<p>${esc(p)}</p>`).join('')}<p class="note">핵심 원리는 논문에 근거합니다. 아래 새 과제는 교육용으로 구성했으며, 다른 형식에서의 효과는 별도로 확인해야 합니다.</p>${u.caseIndex!==null?`<div class="result"><strong>연구에서 확인한 자료</strong><p>${esc(DATA.cases[u.caseIndex].lesson)}</p><p class="note">${DATA.cases[u.caseIndex].aggregate.map(a=>esc(a["조건명"])+": "+esc(a["준수율(%)"])+"% ("+esc(a["짝 수"])+"쌍)").join(" · ")}<br>평균 규칙 준수율이며 글 전체 성공률은 아닙니다.</p></div><details><summary>선택 · 원자료 전체 읽기 · 사례 ${u.caseIndex+1}</summary>${courseEvidence(u.caseIndex)}</details>`:''}</div><div class="card"><h2>2. 직접 설계하기</h2><div class="task-brief">${esc(u.task).replace(/\n/g,'<br>')}</div>${u.prompts.map((p,i)=>courseField('answer'+i,p,f['answer'+i])).join('')}<div class="actions"><button class="primary" id="course-draft">${v.initial?'검토 단계 다시 열기':'초안 보존하고 검토 기준 열기'}</button><button id="course-save">지금 저장</button></div><p id="course-save-status" role="status" class="note">${v.updated?'마지막 저장: '+esc(new Date(v.updated).toLocaleString('ko-KR')):'입력하면 자동 저장됩니다.'}</p></div><div id="course-review"></div></section><aside><div class="card course-sticky"><h3>이번에 작성할 것</h3><p>짧은 초안 하나 + 수정본 + 수정 이유 한두 줄</p><p class="note">형식적으로 글을 채웠는지는 확인할 수 있어도, 직접 쓴 답이 맞는지 자동으로 채점하지는 않습니다.</p><h3>확인할 기준</h3><ul>${u.checks.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><h3>다음 시간까지</h3><p>${esc(u.transfer)}</p>${v.initial?`<details><summary>보존된 첫 초안</summary><div class="response">${esc(v.initial)}</div></details>`:''}${v.history.length?`<details><summary>검토 기록 ${v.history.length}개</summary>${v.history.map(h=>`<p><small>${esc(new Date(h.date).toLocaleString('ko-KR'))}</small></p><div class="response">${esc(h.revision)}</div><p>${esc(h.reason)}</p>`).join('')}</details>`:''}</div></aside></div>`;
  $('#course-home').onclick=()=>{courseIndex=-1;renderCourse();window.scrollTo(0,0);};
  bindCourseFields();
  $('#course-save').onclick=()=>{v.updated=new Date().toISOString();if(persist())notify('차시 기록을 저장했습니다.');};
