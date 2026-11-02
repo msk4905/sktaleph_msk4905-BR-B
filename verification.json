@@ -1,0 +1,7 @@
+{
+  "passed": 166,
+  "sourceRuleDecisions": 96,
+  "browserQA": "not completed: native browser URL verification blocked",
+  "scope": "original source and legacy regression",
+  "newModelCalls": 0
+}
