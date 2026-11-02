@@ -1,1 +1,8 @@
-{"name":"prompt-lab","version":"2.0.0","private":true,"engines":{"node":">=22"},"scripts":{"start":"node server.cjs","test":"node verify.cjs && node verify-learning.cjs && node verify-experiment.cjs"}}
+{
+  "name": "prompt-lab",
+  "version": "2.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  }
+}
