@@ -37,3 +37,5 @@ details:not(.nav-menu)[open]>summary::after{content:"접기";background:#fff}
 details:not(.nav-menu)>summary:hover{border-color:var(--green)}
 .api-panel>summary{font-size:16px}
 @media(prefers-reduced-motion:reduce){details>summary::before{transition:none}}
+
+.auto-check .seen{color:var(--ink)}
